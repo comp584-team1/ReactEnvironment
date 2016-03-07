@@ -1,0 +1,391 @@
+@font-face {
+    font-family:Roboto-Light;
+    src:url("fonts/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: "Ionicons";
+    src: url("fonts/ionicons.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    font-family: Roboto-Light;
+    text-align: left;
+    -webkit-user-select: none;
+    touch-events: none;
+    -webkit-transform: translateZ(0);
+}
+
+.material-button {
+    border-radius: 2px;
+    position: relative;
+    text-align: center;
+    min-height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 4px;
+    font-weight: none;
+    overflow: hidden;
+    z-index: +0;
+}
+.material-button-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.material-touch-active > .material-button-overlay {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.material-card {
+    margin: 10px;
+    padding: 7px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.material-checkbox {
+    background-position: 5px center;
+    background-size: 0px 28px;
+    background-repeat: no-repeat;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 35px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: -1px;
+    position: relative;
+}
+
+.material-icon-area {
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 40px;
+    -webkit-font-smoothing: antialiased;
+    font-size: 28px;
+    width: 40px;
+    text-align: center;
+    position: absolute;
+    left: 0px;
+}
+
+.material-container {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.material-flexbox {
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+}
+
+.material-grid {
+    position: relative;
+}
+.material-grid-item {
+    position: absolute;
+}
+
+.material-input {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: -1px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.material-input-elem {
+    border: 0px;
+    width: 100%;
+    height: 30px;
+    margin: 0px;
+    border-radius: 0px;
+    background-color: transparent;
+    font-family: Roboto-Light;
+    font-size: 14px;
+}
+
+.material-overlay {
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: +100;
+    -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+.material-overlay-content {
+    background-color: white;
+    position: absolute;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+}
+.material-overlay-content-normal {
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    max-height: 80%;
+}
+.material-overlay-content-bottom {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50%;
+}
+
+.material-radio-item {
+    background-position: 5px center;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    min-height: 40px;
+    line-height: 40px;
+    padding-left: 35px;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    margin-top: -1px;
+    position: relative;
+}
+
+.material-range {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: -1px;
+}
+.material-range-background {
+    position: absolute;
+    height: 2px;
+    top: 24px;
+    left: 0px;
+}
+.material-range-container {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    right: 20px;
+    bottom: 0px;
+}
+input[type=range]{
+    -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-top: -11px;
+}
+.material-range-input {
+    opacity: 0;
+    position: absolute;
+    top: 9px;
+    left: 0px;
+    bottom: 9px;
+    width: 100%;
+    margin: 0px;
+}
+.material-range-slider {
+    -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.35);
+    -webkit-transform: translateX(-50%);
+    border: 1px solid rgba(200, 200, 200, 0.35);
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 10px;
+    background-color: white;
+}
+
+.material-scrollable {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.material-select {
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 2px;
+    background-position: right center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    min-height: 40px;
+}
+.material-select-option {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.material-switch {
+    position: relative;
+    min-height: 40px;
+    line-height: 40px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: -1px;
+}
+.material-switch-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    -webkit-transform: translateY(-50%);
+    width: 100px;
+    border: 1px solid lightgray;
+}
+.material-switch-toggle > div {
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.material-switch-on {
+    width: 50px;
+    text-align: center;
+    background-color: cyan;
+}
+.material-switch-off {
+    width: 50%;
+    text-align: center;
+    background-color: green;
+    margin-left: 50px;
+}
+
+.material-title {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: #2FB1DF;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+    z-index: +10;
+}
+.material-title-back {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-family: Ionicons;
+    font-size: 20px;
+    color: white;
+}
+
+
+.screen-initial-enter {
+    position: absolute;
+}
+.screen-initial-enter-active {
+    -webkit-transition: opacity 300ms ease-in;
+}
+.screen-initial-enter {
+    /*-webkit-transform: translateX(100%);*/
+    opacity: 0;
+}
+.screen-initial-enter.screen-initial-enter-active {
+    /*-webkit-transform: translateX(0%);*/
+    opacity: 1;
+}
+
+.screen-forward-leave {
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+.screen-forward-leave.screen-forward-leave-active {
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+}
+
+.screen-forward-enter, .screen-forward-leave {
+    position: absolute;
+}
+.screen-forward-enter-active, .screen-forward-leave-active {
+    -webkit-transition: -webkit-transform 300ms ease-in, opacity 300ms ease-in;
+}
+.screen-forward-enter {
+    -webkit-transform: translateX(100%);
+    opacity: 0;
+}
+.screen-forward-enter.screen-forward-enter-active {
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+
+.screen-forward-leave {
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+.screen-forward-leave.screen-forward-leave-active {
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+}
+
+
+.screen-backward-enter, .screen-backward-leave {
+    position: absolute;
+}
+.screen-backward-enter-active, .screen-backward-leave-active {
+    -webkit-transition: -webkit-transform 300ms ease-in, opacity 300ms ease-in;
+}
+.screen-backward-enter {
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+}
+.screen-backward-enter.screen-backward-enter-active {
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+
+.screen-backward-leave {
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+.screen-backward-leave.screen-backward-leave-active {
+    -webkit-transform: translateX(100%);
+    opacity: 0;
+}
+
+
+.overlay-bottom-enter {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+}
+.overlay-bottom-enter.overlay-bottom-enter-active {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    -webkit-transition: -webkit-transform 225ms ease-in, opacity 225ms ease-in;
+}
