@@ -1,6 +1,6 @@
 var RegisterComponent;
 var LoginComponent;
-var MailComponent;
+var ChatComponent;
 var MainComponent;
 var TextInput;
 var Button;
@@ -92,7 +92,7 @@ RegisterComponent = React.createClass({
 	registerNow: function () {
 		'use strict';
 
-		this.props.onNext(MailComponent)
+		this.props.onNext(ChatComponent)
 	},
 	render: function () {
 		'use strict';
@@ -140,7 +140,7 @@ LoginComponent = React.createClass({
 	loginNow: function () {
 		'use strict';
 
-		this.props.onNext(MailComponent)
+		this.props.onNext(ChatComponent)
 	},
 	render: function () {
 		'use strict';
@@ -155,49 +155,102 @@ LoginComponent = React.createClass({
 	}
 });
 
-MailComponent = React.createClass({
+MessageComponent = React.createClass({
+	getInitialState: function () {
+		'use strict';
+
+		return {};
+	},
+	render: function () {
+		'use strict';
+
+		return (
+			<div className="MessageComponent">
+				<img src={this.props.userAvatar} />
+				<div className="usernameLabel">
+					{this.props.username}
+				</div>
+				<div className="aMessage">
+					{this.props.message}
+				</div>
+			</div>
+		);
+	}
+});
+
+ChatComponent = React.createClass({
 	getInitialState: function () {
 		'use strict';
 		return (
 			{
-				addressText: '',
+				previousMessages: [
+					{
+						text: "Hi",
+						aviURL: "th.jpg",
+						username: "Pete"
+					},
+					{
+						text: "Hello?",
+						aviURL: "th.jpg",
+						username: "Pete"
+					}
+				],
 				messageText: ''
 			}
 		);
 	},
-	addressChange: function (evt) {
-		'use strict';
-
-		var username;
-
-		this.setState({usernameText: evt});
-
-		username = this.state.usernameText;
-
-	},
 	messageChange: function (evt) {
 		'use strict';
 
-		var password;
-
-		this.setState({passwordText: evt});
-
-		password = this.state.passwordText;
-
+		this.setState({messageText: evt});
 	},
-	sendMail: function () {
+	sendMessage: function () {
 		'use strict';
 
 	},
 	render: function () {
 		'use strict';
+
+		var chatscreen;
+
+		if (this.state.previousMessages === [] || this.state.previousMessages === null) {
+			var divR = () => {return(<div></div>);};
+			chatscreen = divR();
+		}
+		else {
+			chatscreen = this.state.previousMessages.map((messages, index) => {
+				return (<MessageComponent userAvatar={messages.aviURL} username={messages.username} message={messages.text} />);
+			});
+		}
+
 		return (
 			<div className="MailBox">
-				<h3>{"Send Mail!"}</h3>
-        		<TextInput placeholder="example@placholder.com" label="Email To:" onChange={this.addressChange} value={this.state.addressText}/>
-        		<TextInput placeholder="Message Goes Here" label="Message" onChange={this.messageChange} value={this.state.messageText}/>
-        		<Button className="SendButton" onClick={this.sendMail} text='Send' />
+				<div className="messagesBox">
+					{chatscreen}
+				</div>
+				<div className="typingBox">
+					<TextInput placeholder="Type Here" onChange={this.messageChange} value={this.state.messageText}/>
+					<Button className="SendButton" onClick={this.sendMessage} text='Send' />
+				</div>
       		</div>
+		);
+	}
+});
+
+MenuComponent = React.createClass({
+	getInitialState: function () {
+		'use strict';
+
+		return ({});
+	},
+	render: function () {
+		'use strict';
+
+		return (
+			<div className="menuStyle">
+				<Button className="RegisterTab" onClick={this.props.registerFunction} text='Register Tab' />
+				<Button className="LoginTab" onClick={this.props.loginFunction} text='Login Tab' />
+			</div>
 		);
 	}
 });
@@ -227,8 +280,8 @@ MainComponent = React.createClass({
 		return (
 			<div>
 				<div className="tabs">
-					<Button className="RegisterTab" onClick={this.switchWorkSpace.bind(this, RegisterComponent)} text='Register Tab' />
-					<Button className="LoginTab" onClick={this.switchWorkSpace.bind(this, LoginComponent)} text='Login Tab' />
+					<Button className="MenuTab" onClick={()=>{}} text='Menu' />
+					<MenuComponent registerFunction={this.switchWorkSpace.bind(this, RegisterComponent)} loginFunction={this.switchWorkSpace.bind(this, LoginComponent)} text="Menu" />
 				</div>
 				<div className="PageMount">
 	        		<WorkspaceView onNext={this.switchWorkSpace} />

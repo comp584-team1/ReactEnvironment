@@ -1,5 +1,7 @@
 .RegisterBox {
-
+	position: absolute;
+	width: 80%;
+	left: 10%;
 }
 
 .RegisterButton {
@@ -7,7 +9,9 @@
 }
 
 .LoginBox {
-
+	position: absolute;
+	width: 80%;
+	left: 10%;
 }
 
 .LoginButton {
@@ -15,7 +19,12 @@
 }
 
 .MailBox {
-
+	border-style: solid;
+	height: 100%;
+	width: 60%;
+	top:10%;
+	bottom:10%;
+	position: absolute;
 }
 
 .SendButton {
@@ -23,33 +32,72 @@
 }
 
 .PageMount {
-	width: 25%;
-	height: 25%;
+	width: 80%;
+	height: 80%;
 	position: absolute;
 	top:0;
 	bottom: 0;
-	left: 0;
-	right: 0;
+	left: 10%;
+	right: 10%;
 
 	margin: auto;
 }
 
 .tabs {
 	position: absolute;
-	height: 3%;
 	width: 25%;
 }
 
 .RegisterTab {
 	float:left;
-	width:40%;
+	width:50%;
 	overflow:hidden;
 	white-space:nowrap;
 }
 
 .LoginTab {
 	float:left;
-	width:40%;
+	width:50%;
 	overflow:hidden;
 	white-space:nowrap;
+}
+
+.MenuTab {
+	float:left;
+	width:50%;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.usernameLabel {
+	border-style: solid;
+	position: absolute;
+	top: 0;
+	left: 50px;
+}
+
+.aMessage {
+	position: absolute;
+	bottom: 0;
+	left: 50px;
+}
+
+.MessageComponent{
+	position: relative;
+	width: 100%;
+	height: 50px;
+}
+
+.typingBox {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.menuStyle {
+	display: none;
+}
+
+.tabs:hover .menuStyle {
+	display: block;
 }
